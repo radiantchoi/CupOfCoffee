@@ -9,20 +9,21 @@ import Foundation
 
 struct Order: Codable {
     let name: String
-    let email: String
-    let type: CoffeeType
+    let coffeeName: CoffeeName
+    let total: Double
     let size: CoffeeSize
 }
 
-enum CoffeeType: String, Codable {
-    case cappuccino
-    case latte
-    case espressino
-    case cortado
+enum CoffeeName: String, Codable, CodingKey {
+    case cappuccino = "Cappuccino"
+    case latte = "Latte"
+    case espressino = "Espressino"
+    case cortado = "Cortado"
+    case hotCoffee = "Hot Coffee"
 }
 
 enum CoffeeSize: String, Codable {
-    case small
-    case medium
-    case large
+    case Small
+    case Medium
+    case Large
 }
