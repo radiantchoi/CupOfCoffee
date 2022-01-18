@@ -114,10 +114,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Order" id="Kxa-IK-Lvs">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mHc-Vh-uge"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ucw-gG-iyk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ucw-gG-iyk">
+                            <connections>
+                                <action selector="save" destination="wqo-kN-bYG" id="v92-lL-TcO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameTextField" destination="C47-DH-I37" id="zCl-4O-BGv"/>
                         <outlet property="tableView" destination="pRL-H1-MXe" id="JBg-7D-sCp"/>
+                        <outlet property="totalTextField" destination="8Zb-dE-aTq" id="rVY-sY-tFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiH-Zc-f6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

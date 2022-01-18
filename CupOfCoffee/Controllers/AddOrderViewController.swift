@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 class AddOrderViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var totalTextField: UITextField!
     
     private var viewModel = AddOrderViewModel()
-    private var coffeeeSizesSegmentedControl: UISegmentedControl!
+    private var coffeeSizesSegmentedControl: UISegmentedControl!
+    
 }
 
 extension AddOrderViewController {
@@ -50,15 +54,34 @@ extension AddOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AddOrderViewController {
     private func setupUI() {
-        self.coffeeeSizesSegmentedControl = UISegmentedControl(items: self.viewModel.size)
-        self.coffeeeSizesSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        self.coffeeSizesSegmentedControl = UISegmentedControl(items: self.viewModel.size)
+        self.coffeeSizesSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.addSubview(self.coffeeeSizesSegmentedControl)
+        self.view.addSubview(self.coffeeSizesSegmentedControl)
         
-        self.coffeeeSizesSegmentedControl.topAnchor.constraint(equalTo: self.tableView.bottomAnchor,
+        self.coffeeSizesSegmentedControl.topAnchor.constraint(equalTo: self.tableView.bottomAnchor,
                                                                constant: 20).isActive = true
         
-        self.coffeeeSizesSegmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        self.coffeeSizesSegmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
             .isActive = true
+    }
+}
+
+extension AddOrderViewController {
+    @IBAction func save() {
+        let name = self.nameTextField.text
+        let total = Double(self.totalTextField.text ?? "0.0")
+        
+        let selectedSize = self.coffeeSizesSegmentedControl.titleForSegment(at: self.coffeeSizesSegmentedControl.selectedSegmentIndex)
+        
+        guard let indexPath = self.tableView.indexPathForSelectedRow
+        else {
+            fatalError("Error in selecting coffee!")
+        }
+        
+        self.viewModel.name = name
+        self.viewModel.total = total
+        self.viewModel.selectedSize = selectedSize
+        self.viewModel.selectedCoffee = self.viewModel.coffeeName[indexPath.row]
     }
 }
