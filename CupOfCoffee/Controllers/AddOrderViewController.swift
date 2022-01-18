@@ -83,5 +83,14 @@ extension AddOrderViewController {
         self.viewModel.total = total
         self.viewModel.selectedSize = selectedSize
         self.viewModel.selectedCoffee = self.viewModel.coffeeName[indexPath.row]
+        
+        WebService().load(resource: Order.create(viewModel: self.viewModel)) { result in
+            switch result {
+            case .success(let order):
+                print(order)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
