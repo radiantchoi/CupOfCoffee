@@ -27,3 +27,18 @@ enum CoffeeSize: String, Codable, CaseIterable {
     case Medium
     case Large
 }
+
+extension Order {
+    init?(_ viewModel: AddOrderViewModel) {
+        guard let name = viewModel.name,
+              let total = viewModel.total,
+              let coffeeName = CoffeeName(rawValue: viewModel.selectedCoffee!),
+              let size = CoffeeSize(rawValue: viewModel.selectedSize!)
+        else { return nil }
+        
+        self.name = name
+        self.total = total
+        self.coffeeName = coffeeName
+        self.size = size
+    }
+}

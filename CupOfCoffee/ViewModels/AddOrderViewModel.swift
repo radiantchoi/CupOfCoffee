@@ -10,7 +10,6 @@ import Foundation
 struct AddOrderViewModel {
     var name: String?
     var total: Double?
-    
     var selectedCoffee: String?
     var selectedSize: String?
     
