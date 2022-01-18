@@ -17,6 +17,7 @@
 		4F5981A62795398F00BD7508 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5981A52795398F00BD7508 /* OrdersTableViewController.swift */; };
 		4F5981A8279539BF00BD7508 /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5981A7279539BF00BD7508 /* AddOrderViewController.swift */; };
 		4F8A9BE82796A6AB00536115 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A9BE72796A6AB00536115 /* OrderViewModel.swift */; };
+		4FDC75592796D71900D4EEB1 /* AddOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC75582796D71900D4EEB1 /* AddOrderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4F5981A52795398F00BD7508 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		4F5981A7279539BF00BD7508 /* AddOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
 		4F8A9BE72796A6AB00536115 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		4FDC75582796D71900D4EEB1 /* AddOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4F8A9BE72796A6AB00536115 /* OrderViewModel.swift */,
+				4FDC75582796D71900D4EEB1 /* AddOrderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				4F15A2C62795A2840071444D /* Order.swift in Sources */,
 				4F59818F2795354A00BD7508 /* AppDelegate.swift in Sources */,
 				4F5981912795354A00BD7508 /* SceneDelegate.swift in Sources */,
+				4FDC75592796D71900D4EEB1 /* AddOrderViewModel.swift in Sources */,
 				4F5981A62795398F00BD7508 /* OrdersTableViewController.swift in Sources */,
 				4F15A2C327959D5E0071444D /* WebService.swift in Sources */,
 				4F8A9BE82796A6AB00536115 /* OrderViewModel.swift in Sources */,

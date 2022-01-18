@@ -97,10 +97,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgz-hH-Aym">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-dE-aTq">
                                 <rect key="frame" x="107" y="653" width="200" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="yXN-oO-RRg"/>
+                                    <constraint firstAttribute="width" constant="200" id="KCB-Qm-ZPk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="XV9-ol-JUx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -109,11 +110,11 @@
                         <viewLayoutGuide key="safeArea" id="9Bd-ME-YRT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qgz-hH-Aym" firstAttribute="centerX" secondItem="OMt-AA-auO" secondAttribute="centerX" id="4ve-9K-SaE"/>
+                            <constraint firstItem="8Zb-dE-aTq" firstAttribute="centerX" secondItem="OMt-AA-auO" secondAttribute="centerX" id="1cD-wm-EZT"/>
                             <constraint firstItem="7cD-80-1FZ" firstAttribute="top" secondItem="pRL-H1-MXe" secondAttribute="bottom" constant="26" id="Lch-iq-bg8"/>
                             <constraint firstItem="7cD-80-1FZ" firstAttribute="centerX" secondItem="OMt-AA-auO" secondAttribute="centerX" id="OIl-px-Ttn"/>
                             <constraint firstItem="pRL-H1-MXe" firstAttribute="height" secondItem="OMt-AA-auO" secondAttribute="height" multiplier="0.5" id="g8O-o3-Rbv"/>
-                            <constraint firstItem="qgz-hH-Aym" firstAttribute="top" secondItem="C47-DH-I37" secondAttribute="bottom" constant="8" symbolic="YES" id="hlV-pH-jWY"/>
+                            <constraint firstItem="8Zb-dE-aTq" firstAttribute="top" secondItem="C47-DH-I37" secondAttribute="bottom" constant="8" symbolic="YES" id="nJP-m1-LOc"/>
                             <constraint firstItem="pRL-H1-MXe" firstAttribute="leading" secondItem="9Bd-ME-YRT" secondAttribute="leading" id="p9A-dj-IK4"/>
                             <constraint firstItem="pRL-H1-MXe" firstAttribute="width" secondItem="OMt-AA-auO" secondAttribute="width" id="tpa-Uk-oBN"/>
                             <constraint firstItem="C47-DH-I37" firstAttribute="centerX" secondItem="OMt-AA-auO" secondAttribute="centerX" id="xyp-g0-M0q"/>
@@ -125,6 +126,9 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mHc-Vh-uge"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ucw-gG-iyk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="pRL-H1-MXe" id="JBg-7D-sCp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiH-Zc-f6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

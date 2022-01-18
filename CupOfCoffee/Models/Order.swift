@@ -14,7 +14,7 @@ struct Order: Codable {
     let size: CoffeeSize
 }
 
-enum CoffeeName: String, Codable, CodingKey {
+enum CoffeeName: String, Codable, CodingKey, CaseIterable {
     case cappuccino = "Cappuccino"
     case latte = "Latte"
     case espressino = "Espressino"
@@ -22,7 +22,7 @@ enum CoffeeName: String, Codable, CodingKey {
     case hotCoffee = "Hot Coffee"
 }
 
-enum CoffeeSize: String, Codable {
+enum CoffeeSize: String, Codable, CaseIterable {
     case Small
     case Medium
     case Large
