@@ -113,7 +113,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Order" id="Kxa-IK-Lvs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mHc-Vh-uge"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mHc-Vh-uge">
+                            <connections>
+                                <action selector="close" destination="wqo-kN-bYG" id="7hu-DI-I5F"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ucw-gG-iyk">
                             <connections>
                                 <action selector="save" destination="wqo-kN-bYG" id="v92-lL-TcO"/>

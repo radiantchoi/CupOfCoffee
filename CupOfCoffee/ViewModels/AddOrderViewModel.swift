@@ -14,10 +14,10 @@ struct AddOrderViewModel {
     var selectedSize: String?
     
     var coffeeName: [String] {
-        return CoffeeName.allCases.map { $0.rawValue.capitalized }
+        return CoffeeName.allCases.map { $0.rawValue }
     }
     
     var size: [String] {
-        return CoffeeSize.allCases.map { $0.rawValue.capitalized }
+        return CoffeeSize.allCases.map { $0.rawValue }
     }
 }

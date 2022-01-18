@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol AddCoffeeOrderDelegate {
+    func addCoffeeOrderViewControllerDidSave(order: Order, controller: UIViewController)
+    func addCoffeeOrderViewControllerDidClose(controller: UIViewController)
+}
+
 class AddOrderViewController: UIViewController {
+    
+    var delegate: AddCoffeeOrderDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -16,7 +23,6 @@ class AddOrderViewController: UIViewController {
     
     private var viewModel = AddOrderViewModel()
     private var coffeeSizesSegmentedControl: UISegmentedControl!
-    
 }
 
 extension AddOrderViewController {
@@ -87,10 +93,27 @@ extension AddOrderViewController {
         WebService().load(resource: Order.create(viewModel: self.viewModel)) { result in
             switch result {
             case .success(let order):
+                guard let order = order,
+                      let delegate = self.delegate
+                else { return }
+                
+                DispatchQueue.main.async {
+                    delegate.addCoffeeOrderViewControllerDidSave(order: order,
+                                                                 controller: self)
+                }
+                
                 print(order)
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    @IBAction func close() {
+        guard let delegate = self.delegate else {
+            return
+        }
+        
+        delegate.addCoffeeOrderViewControllerDidClose(controller: self)
     }
 }
