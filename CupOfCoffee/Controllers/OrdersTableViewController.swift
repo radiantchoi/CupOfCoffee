@@ -20,17 +20,11 @@ class OrdersTableViewController: UITableViewController {
 
 extension OrdersTableViewController {
     private func populateOrders() {
-        guard let coffeeOrdersUrl = URL(string: "https://island-bramble.glitch.me/orders")
-        else {
-            fatalError("Incorrect URL")
-        }
-        
-        let resource = Resource<[Order]>(url: coffeeOrdersUrl)
-        WebService().load(resource: resource) { result in
+        WebService().load(resource: Order.all) { [weak self] result in
             switch result {
             case .success(let orders):
-                self.orderListViewModel.ordersViewModel = orders.map(OrderViewModel.init)
-                self.tableView.reloadData()
+                self?.orderListViewModel.ordersViewModel = orders.map(OrderViewModel.init)
+                self?.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }

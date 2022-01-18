@@ -42,3 +42,33 @@ extension Order {
         self.size = size
     }
 }
+
+extension Order {
+    static var all: Resource<[Order]> = {
+        guard let url = URL(string: "https://island-bramble.glitch.me/orders")
+        else {
+            fatalError("URL is incorrect!")
+        }
+        
+        return Resource<[Order]>(url: url)
+    }()
+    
+    static func create(viewModel: AddOrderViewModel) -> Resource<Order?> {
+        let order = Order(viewModel)
+        guard let url = URL(string: "https://island-bramble.glitch.me/orders")
+        else {
+            fatalError("URL is incorrect!")
+        }
+        
+        guard let data = try? JSONEncoder().encode(order)
+        else {
+            fatalError("Error encoding order!")
+        }
+        
+        var resource = Resource<Order?>(url: url)
+        resource.httpMethod = .post
+        resource.body = data
+        
+        return resource
+    }
+}
