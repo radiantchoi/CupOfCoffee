@@ -12,12 +12,14 @@ class AddOrderViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel = AddOrderViewModel()
+    private var coffeeeSizesSegmentedControl: UISegmentedControl!
 }
 
 extension AddOrderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -35,5 +37,20 @@ extension AddOrderViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = self.viewModel.coffeeName[indexPath.row]
         return cell
+    }
+}
+
+extension AddOrderViewController {
+    private func setupUI() {
+        self.coffeeeSizesSegmentedControl = UISegmentedControl(items: self.viewModel.size)
+        self.coffeeeSizesSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.coffeeeSizesSegmentedControl)
+        
+        self.coffeeeSizesSegmentedControl.topAnchor.constraint(equalTo: self.tableView.bottomAnchor,
+                                                               constant: 20).isActive = true
+        
+        self.coffeeeSizesSegmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            .isActive = true
     }
 }
